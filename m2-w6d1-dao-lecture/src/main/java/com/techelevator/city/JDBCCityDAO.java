@@ -20,7 +20,7 @@ public class JDBCCityDAO implements CityDAO {
 	public void save(City newCity) {
 		String sqlInsertCity = "INSERT INTO city(id, name, countrycode, district, population) " +
 							   "VALUES(?, ?, ?, ?, ?)";
-		newCity.setId(getNextCityId());
+		newCity.setId(6000L);
 		jdbcTemplate.update(sqlInsertCity, newCity.getId(),
 										  newCity.getName(),
 										  newCity.getCountryCode(),
@@ -63,13 +63,20 @@ public class JDBCCityDAO implements CityDAO {
 
 	@Override
 	public void update(City city) {
-		// TODO Auto-generated method stub
+		String sqlUpdateCity = "UPDATE city SET name=?, countrycode=?, district=?, population=? WHERE id=?";
+		
+		jdbcTemplate.update(sqlUpdateCity, city.getName(),
+										city.getCountryCode(),
+										city.getDistrict(),
+										city.getPopulation(),
+										city.getId());
+		
 		
 	}
 
 	@Override
 	public void delete(long id) {
-		// TODO Auto-generated method stub
+		jdbcTemplate.update("DELETE FROM city WHERE id=?", id);
 		
 	}
 

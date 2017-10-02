@@ -1,5 +1,7 @@
 package com.techelevator;
 
+import java.util.List;
+
 import org.apache.commons.dbcp2.BasicDataSource;
 
 import com.techelevator.city.City;
@@ -18,14 +20,26 @@ public class DAOExample {
 		CityDAO dao = new JDBCCityDAO(worldDataSource);
 		
 		City smallville = new City();
+		smallville.setId(6000L);
 		smallville.setCountryCode("USA");
-		smallville.setDistrict("KS");
+		smallville.setDistrict("Kansas");
 		smallville.setName("Smallville");
 		smallville.setPopulation(42080);
 		
-		dao.save(smallville);
+		//dao.save(smallville);
+		dao.update(smallville);
 		
-		City theCity = dao.findCityById(smallville.getId());
+		System.out.println(smallville.getId());
+		
+		City theCity = dao.findCityById(75);
+		
+		System.out.println(theCity.getName());
+		
+		List<City> allCitiesInCanada = dao.findCityByCountryCode("CAN");
+		for(City thisOne : allCitiesInCanada) {
+			thisOne.setName( thisOne.getName() + ", eh?");
+			dao.update(thisOne);
+		}
 		
 	}
 
