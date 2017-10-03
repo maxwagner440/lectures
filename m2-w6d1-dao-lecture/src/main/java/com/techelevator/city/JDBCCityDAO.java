@@ -63,7 +63,13 @@ public class JDBCCityDAO implements CityDAO {
 
 	@Override
 	public void update(City city) {
-		// TODO Auto-generated method stub
+		String sqlUpdateCity = "UPDATE city SET name=?, countrycode =?, district=?, population=? WHERE id=?";
+		
+		jdbcTemplate.update(sqlUpdateCity, city.getName(), 
+									city.getCountryCode(), 
+									city.getDistrict(), 
+									city.getPopulation(), 
+									city.getId());	
 		
 	}
 

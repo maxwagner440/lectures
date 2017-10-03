@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.techelevator</groupId>
 	<artifactId>file-io-part2-lecture</artifactId>
-	<version>1.0</version>
+	<version>1.5</version>
 	<packaging>jar</packaging>
 	<dependencies>
 		<dependency>
