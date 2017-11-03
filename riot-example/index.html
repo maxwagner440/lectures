@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Riot Clocks</title>
+</head>
+<body>
+    <clock></clock>
+    <world-time-picker></world-time-picker>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.1/moment.min.js" integrity="sha256-zG8v+NWiZxmjNi+CvUYnZwKtHzFtdO8cAKUIdB8+U9I=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.13/moment-timezone-with-data.min.js" integrity="sha256-Mbm+oB/+8ujzEer9u83ZRKEhlPohbY9USJ4VpxiNR9w=" crossorigin="anonymous"></script>
+
+    <script src="https://rawgit.com/riot/riot/master/riot%2Bcompiler.min.js"></script>
+    <script src="clock.tag" type="riot/tag"></script>
+    <script src="worldTimePicker.tag" type="riot/tag"></script>
+
+    <script>
+        const bus = {};
+        riot.observable(bus);
+        riot.mount('clock,world-time-picker', {
+            bus: bus,
+        });
+    </script>
+</body>
+</html>
