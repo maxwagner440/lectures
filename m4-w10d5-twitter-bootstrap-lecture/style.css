@@ -1,49 +1,15 @@
 .savings-account {
-    background-color: #d6f5d6 !important; 
-    grid-area: savings;      
+    background-color: #d6f5d6 !important;        
 }
 
 .checking-account {
     background-color: #d6f5d6 !important;
-    grid-area: checking;
 }
 
 .loans {
     background-color: #d6f5d6 !important;
-    grid-area: loans;
 }
 
-#savings-account-image {
-    grid-area: savings-image;
-}
-#checking-account-image {
-    grid-area: checking-image;
-}
-#loans-account-image {
-    grid-area: loans-image;
-}
 .account-image {
     margin: auto;
-}
-#nothing {
-    grid-area: nothing;
-}
-
-.grid-container {
-    display:grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto;
-    grid-template-areas:
-            "checking       checking"
-            "savings        loans";
-    grid-column-gap: 1.2em;
-}
-
-@media screen and (min-width: 700px) {
-    .grid-container {
-        grid-template-columns: 1fr 3fr 3fr 3fr 1fr;
-        grid-template-rows: auto;
-        grid-template-areas: ". savings-image checking-image loans-image ."
-                            ". savings checking loans .";
-    }
 }
